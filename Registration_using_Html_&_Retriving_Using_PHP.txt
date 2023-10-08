@@ -1,0 +1,97 @@
+A - Design registration form using HTML and retrieve form data using php
+
+<html>
+<head>
+<title>Retrieving records </Title>
+</head>
+<h2>User Registration</h2>
+<form name=f1 method=GET action="Retrieve.php">
+<pre>
+First Name: <input name="fn" type="text"><br/>
+Last Name : <input name="ln" type="text"><br/>
+Age : <input name="Age" type="text"><br/>
+Hometown : <input name="Ht" type="text"><br/>
+Mobile No : <input name="mn" type="text" maxlength=10><br/> <input type="Submit"
+value="Submit">
+</pre>
+</form>
+</body>
+</html>
+<?php
+$fname=trim($_REQUEST["fn"]);
+$lname=trim($_REQUEST["ln"]);
+$Age=trim($_REQUEST["Age"]);
+$Hometown=trim($_REQUEST["Ht"]);
+$mobno=trim($_REQUEST["mn"]);
+echo "<H1> Retrieving Data from Server...<?h1>";
+echo "<table border='1'>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Age</th>
+<th>Hometown</th>
+<th>Mobile Number</th>
+</tr>";
+echo "<tr>";
+echo "<td>".$fname."</td>";
+echo "<td>".$lname."</td>";
+echo "<td>".$Age."</td>";
+echo "<td>".$Hometown."</td>";
+echo "<td>".$mobno."</td>";
+echo "</tr>"; echo"</table>";
+?>
+
+
+
+
+
+B - Retrieve Employee Details/ Registration Details from the database using PHP
+
+
+<html>
+<head>
+<title> Practical 9Retrieve Employee Details/ Registration Details from the database using PHP </title>
+</head>
+<body>
+<center>
+<form method=get action="getuser.php">
+<input Type=textbox name="txtId">
+<input type="Submit" value="Submit">
+</form>
+<br />
+</center>
+</body>
+</html>
+getuser.php
+<?php
+$q=$_GET["txtId"];
+$con=mysql_connect('localhost','root','');
+if(!$con)
+{
+die('Could not connect:'.mysql_error());
+}
+mysql_select_db("db1",$con);
+$sql="select * from register where ID='".$q."'";
+$result=mysql_query($sql);
+echo "<table border='1'>
+<tr>
+<th>ID</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Age</th>
+<th>Hometown</th>
+<th>Mobile Number</th>
+</tr>";
+while($row=mysql_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>".$row['ID']."</td>";
+echo "<td>".$row['FName']."</td>";
+echo "<td>".$row['LName']."</td>";
+echo "<td>".$row['Age']."</td>";
+echo "<td>".$row['HomeTown']."</td>";
+echo "<td>".$row['MobileNo']."</td>";
+echo "</tr>";
+}
+echo"</table>";
+mysql_close($con);
