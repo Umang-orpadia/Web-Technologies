@@ -1,0 +1,430 @@
+
+Even Odd Checker
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even/Odd Checker</title>
+</head>
+<body>
+
+<script>
+    // Get user input using prompt dialog
+    const userInput = prompt("Enter a number:");
+
+    // Convert the user input to a number
+    const number = parseInt(userInput);
+
+    // Check if the number is valid
+    if (!isNaN(number)) {
+        // Check if the number is even or odd
+        if (number % 2 === 0) {
+            alert(`${number} is an even number.`);
+        } else {
+            alert(`${number} is an odd number.`);
+        }
+    } else {
+        alert("Invalid input. Please enter a valid number.");
+    }
+</script>
+
+</body>
+</html>
+
+
+Sum Of First N Number
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of First n Numbers</title>
+</head>
+<body>
+
+<script>
+    // Get user input for n using prompt dialog
+    const userInput = prompt("Enter a value for 'n':");
+
+    // Convert the user input to a number
+    const n = parseInt(userInput);
+
+    // Check if the input is valid
+    if (!isNaN(n) && n > 0) {
+        // Calculate the sum of the first n natural numbers
+        const sum = (n * (n + 1)) / 2;
+        alert(`The sum of the first ${n} natural numbers is ${sum}.`);
+    } else {
+        alert("Invalid input. Please enter a valid positive number.");
+    }
+</script>
+
+</body>
+</html>
+
+
+Factorial Calculator
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factorial Calculator</title>
+</head>
+<body>
+
+<script>
+    // Get user input using prompt dialog
+    const userInput = prompt("Enter a number:");
+
+    // Convert the user input to a number
+    const number = parseInt(userInput);
+
+    // Check if the input is valid
+    if (!isNaN(number) && number >= 0) {
+        // Calculate the factorial
+        let factorial = 1;
+        for (let i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+        alert(`The factorial of ${number} is ${factorial}.`);
+    } else {
+        alert("Invalid input. Please enter a non-negative integer.");
+    }
+</script>
+
+</body>
+</html>
+
+
+Interest Calculator
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interest Calculator</title>
+</head>
+<body>
+
+<h1>Interest Calculator</h1>
+
+<label for="principal">Principal Amount:</label>
+<input type="number" id="principal" placeholder="Enter principal amount"><br><br>
+
+<label for="years">Number of Years:</label>
+<input type="number" id="years" placeholder="Enter number of years"><br><br>
+
+<label for="rate">Rate of Interest (%):</label>
+<input type="number" id="rate" placeholder="Enter rate of interest"><br><br>
+
+<button onclick="calculateInterest()">Calculate Interest</button>
+<button onclick="calculateFinalAmount()">Final Amount</button><br><br>
+
+<p id="result"></p>
+
+<script>
+    function calculateInterest() {
+        const principal = parseFloat(document.getElementById("principal").value);
+        const years = parseFloat(document.getElementById("years").value);
+        const rate = parseFloat(document.getElementById("rate").value);
+
+        if (!isNaN(principal) && !isNaN(years) && !isNaN(rate)) {
+            const interest = (principal * rate * years) / 100;
+            document.getElementById("result").innerText = `Simple Interest: ${interest.toFixed(2)}`;
+        } else {
+            document.getElementById("result").innerText = "Invalid input. Please enter valid numbers.";
+        }
+    }
+
+    function calculateFinalAmount() {
+        const principal = parseFloat(document.getElementById("principal").value);
+        const years = parseFloat(document.getElementById("years").value);
+        const rate = parseFloat(document.getElementById("rate").value);
+
+        if (!isNaN(principal) && !isNaN(years) && !isNaN(rate)) {
+            const interest = (principal * rate * years) / 100;
+            const finalAmount = principal + interest;
+            document.getElementById("result").innerText = `Final Amount: ${finalAmount.toFixed(2)}`;
+        } else {
+            document.getElementById("result").innerText = "Invalid input. Please enter valid numbers.";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+Textbox Validation
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Textbox Validation</title>
+</head>
+<body>
+<h1>Textbox Validation</h1>
+<label for="textbox">Enter Text:</label>
+<input type="text" id="textbox" placeholder="Type something"><br><br>
+
+<button onclick="validateTextbox()">Validate</button><br><br>
+
+<p id="validationMessage"></p>
+
+<script>
+    function validateTextbox() {
+        const textboxValue = document.getElementById("textbox").value;
+
+        if (textboxValue.trim() === "") {
+            document.getElementById("validationMessage").innerText = "Textbox cannot be empty.";
+        } else {
+            document.getElementById("validationMessage").innerText = "Textbox is not empty.";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+Number Validation
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Validation</title>
+</head>
+<body>
+
+<h1>Number Validation</h1>
+
+<label for="numberInput">Enter a Number (1-10):</label>
+<input type="number" id="numberInput" placeholder="Enter a number between 1 and 10"><br><br>
+
+<button onclick="validateNumber()">Validate</button><br><br>
+
+<p id="validationMessage"></p>
+
+<script>
+    function validateNumber() {
+        const number = parseFloat(document.getElementById("numberInput").value);
+
+        if (!isNaN(number) && number >= 1 && number <= 10) {
+            document.getElementById("validationMessage").innerText = "Valid number.";
+        } else {
+            document.getElementById("validationMessage").innerText = "Please enter a number between 1 and 10.";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+Delayed Alert
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delayed Alert</title>
+</head>
+<body>
+
+<h1>Delayed Alert</h1>
+
+<button onclick="showDelayedAlert()">Show Alert in 3 Seconds</button>
+
+<script>
+    function showDelayedAlert() {
+        setTimeout(function() {
+            alert("This is an alert box displayed after 3 seconds.");
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+</script>
+
+</body>
+</html>
+
+
+Set Timeout & ClearTimeout
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter with setTimeout and clearTimeout</title>
+</head>
+<body>
+
+<h1>Counter</h1>
+
+<p id="counterValue">0</p>
+<button id="startButton">Start Counter</button>
+<button id="stopButton">Stop Counter</button>
+
+<script>
+    let counter = 0;
+    let timer;
+
+    const counterValueElement = document.getElementById("counterValue");
+    const startButton = document.getElementById("startButton");
+    const stopButton = document.getElementById("stopButton");
+
+    function updateCounter() {
+        counterValueElement.textContent = counter;
+        counter++;
+        timer = setTimeout(updateCounter, 1000); // Update every 1 second
+    }
+
+    startButton.addEventListener("click", () => {
+        startButton.disabled = true;
+        stopButton.disabled = false;
+        updateCounter();
+    });
+
+    stopButton.addEventListener("click", () => {
+        clearTimeout(timer);
+        startButton.disabled = false;
+        stopButton.disabled = true;
+    });
+</script>
+
+</body>
+</html>
+
+
+Login Form
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+
+<h1>Login Form</h1>
+
+<form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br><br>
+
+    <label for="password">Password (Max 8 characters):</label>
+    <input type="password" id="password" maxlength="8" required><br><br>
+
+    <button type="button" id="loginButton">Login</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+    const predefinedUsername = "username";
+    const predefinedPassword = "password";
+    let remainingAttempts = 3;
+
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginButton = document.getElementById("loginButton");
+    const messageElement = document.getElementById("message");
+
+    loginButton.addEventListener("click", function() {
+        const enteredUsername = usernameInput.value;
+        const enteredPassword = passwordInput.value;
+
+        if (enteredUsername === predefinedUsername && enteredPassword === predefinedPassword) {
+            messageElement.textContent = "Welcome!";
+        } else {
+            remainingAttempts--;
+            if (remainingAttempts > 0) {
+                messageElement.textContent = `Incorrect credentials. ${remainingAttempts} attempts remaining.`;
+            } else {
+                messageElement.textContent = "Maximum attempts reached. Application will now end.";
+                loginButton.disabled = true;
+                usernameInput.disabled = true;
+                passwordInput.disabled = true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+Registration Form
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+
+<h1>Registration Form</h1>
+
+<form id="registrationForm">
+    <label for="name">Name (No digits allowed):</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="age">Age (No characters allowed):</label>
+    <input type="text" id="age" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+    const nameInput = document.getElementById("name");
+    const ageInput = document.getElementById("age");
+    const emailInput = document.getElementById("email");
+    const registrationForm = document.getElementById("registrationForm");
+    const messageElement = document.getElementById("message");
+
+    nameInput.addEventListener("input", function() {
+        this.value = this.value.replace(/\d/g, ""); // Remove digits
+    });
+
+    ageInput.addEventListener("input", function() {
+        this.value = this.value.replace(/\D/g, ""); // Remove non-digits
+    });
+
+    emailInput.addEventListener("blur", function() {
+        if (this.value.trim() !== "") {
+            const isValidEmail = validateEmail(this.value);
+            if (!isValidEmail) {
+                messageElement.textContent = "Invalid email format.";
+                this.focus();
+            }
+        }
+    });
+
+    registrationForm.addEventListener("submit", function(event) {
+        const isValidName = nameInput.value.trim() !== "" && !/\d/.test(nameInput.value);
+        const isValidAge = ageInput.value.trim() !== "" && /^\d+$/.test(ageInput.value);
+        const isValidEmail = validateEmail(emailInput.value);
+
+        if (!isValidName) {
+            messageElement.textContent = "Name should not contain digits.";
+            event.preventDefault();
+        } else if (!isValidAge) {
+            messageElement.textContent = "Age should be a number.";
+            event.preventDefault();
+        } else if (!isValidEmail) {
+            messageElement.textContent = "Invalid email format.";
+            event.preventDefault();
+        }
+    });
+
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
+
+</body>
+</html>
+
+
